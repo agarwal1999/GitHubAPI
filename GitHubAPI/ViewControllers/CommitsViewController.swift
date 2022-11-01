@@ -9,12 +9,14 @@ import UIKit
 
 class CommitsViewController: UIViewController {
     
-    var commits = [Result]()
+    var repoName: String?
     let tableView: UITableView = {
         let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(CommitTableViewCell.self, forCellReuseIdentifier: CommitTableViewCell.identifier)
         return table
     }()
+    var commits = [Result]()
+    private var viewModel: CommitTableViewCellViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,18 @@ class CommitsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.frame = view.bounds
+        fetchData()
+    }
+    
+    func fetchData() {
+        guard let repoName = repoName else { return }
+        self.viewModel = CommitTableViewCellViewModel(repoName: repoName)
+        self.viewModel.bindViewModelToViewController = {
+            self.commits = self.viewModel.commitsData
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -31,11 +45,9 @@ extension CommitsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CommitTableViewCell.identifier, for: indexPath) as! CommitTableViewCell
         let commit = commits[indexPath.row].commit
-        var content = cell.defaultContentConfiguration()
-        content.text = "\(commit.message) and \(commit.author.name)"
-        cell.contentConfiguration = content
+        self.viewModel.configureCell(cellToConfigure: cell, data: commit)
         return cell
     }
 }

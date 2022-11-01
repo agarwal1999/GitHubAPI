@@ -7,39 +7,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     var data = [Repository]()
-    var apiService: APIService!
-    
     var tableView: UITableView = {
         let table = UITableView()
         table.register(RepoTableViewCell.self, forCellReuseIdentifier: RepoTableViewCell.identifier)
         return table
     }()
+    private var viewModel: RepositoryTableViewCellViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Repositories"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(tableView)
+        tableView.frame = view.bounds
         tableView.dataSource = self
         tableView.delegate = self
         fetchData()
     }
     
     func fetchData() {
-        self.apiService = APIService()
-        self.apiService.getAllRepos {[weak self] results in
-            self?.data.append(contentsOf: results)
+        self.viewModel = RepositoryTableViewCellViewModel()
+        self.viewModel.bindViewModelToViewController = {
+            self.data = self.viewModel.repoData
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
     }
 }
 
@@ -50,8 +45,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RepoTableViewCell.identifier, for: indexPath) as! RepoTableViewCell
-        let model = data[indexPath.row]
-        cell.configure(with: model)
+        let repo = data[indexPath.row]
+        viewModel.configureCell(cellToConfigure: cell, data: repo)
         return cell
     }
 }
@@ -59,12 +54,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let commitsVC = CommitsViewController()
-        self.apiService.getCommits(repoName: data[indexPath.row].name) {[weak commitsVC] commits in
-            commitsVC?.commits.append(contentsOf: commits)
-            DispatchQueue.main.async {
-                commitsVC?.tableView.reloadData()
-            }
-        }
+        commitsVC.repoName = data[indexPath.row].name
         navigationController?.pushViewController(commitsVC, animated: true)
     }
 }

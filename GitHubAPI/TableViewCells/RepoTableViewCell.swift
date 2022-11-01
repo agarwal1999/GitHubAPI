@@ -11,33 +11,47 @@ class RepoTableViewCell: UITableViewCell {
 
     static let identifier = "RepoTableViewCell"
     
-    var myLabel: UILabel = {
+    var repoNameLabel: UILabel = {
         var label = UILabel()
         label.textColor = .white
         return label
     }()
     
+    var langLabel: UILabel = {
+        var label = UILabel()
+        label.textColor = .secondaryLabel
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureLabel()
+        configureNameLabel()
+        configureLangLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureLabel() {
-        contentView.addSubview(myLabel)
-        myLabel.translatesAutoresizingMaskIntoConstraints = false
+    func configureNameLabel() {
+        contentView.addSubview(repoNameLabel)
+        repoNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            myLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant:  10),
-            myLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant:  -10),
-            myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant:  10),
-            myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -10),
+            repoNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant:  10),
+            repoNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant:  10),
+            repoNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -10),
+            repoNameLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3)
         ])
     }
     
-    func configure(with model: Repository) {
-        myLabel.text = "\(model.name) and \(model.language)"
+    func configureLangLabel() {
+        contentView.addSubview(langLabel)
+        langLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            langLabel.topAnchor.constraint(equalTo: repoNameLabel.bottomAnchor, constant: 10),
+            langLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant:  10),
+            langLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -10),
+            langLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+        ])
     }
 }
