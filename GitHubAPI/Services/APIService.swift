@@ -8,7 +8,6 @@
 import Foundation
 
 class APIService {
-    var repoData = [Repository]()
     let staticURL = "https://api.github.com/"
     
     func getAllRepos(completion: @escaping ([Repository]) -> ()) {

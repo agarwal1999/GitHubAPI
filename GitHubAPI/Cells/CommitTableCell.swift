@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CommitTableViewCell: UITableViewCell {
+class CommitTableCell: UITableViewCell {
     
     static let identifier = "CommitTableViewCell"
     

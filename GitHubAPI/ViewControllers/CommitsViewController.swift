@@ -9,14 +9,23 @@ import UIKit
 
 class CommitsViewController: UIViewController {
     
-    var repoName: String?
-    let tableView: UITableView = {
+    private var repoName: String
+    private lazy var tableView: UITableView = {
         let table = UITableView()
-        table.register(CommitTableViewCell.self, forCellReuseIdentifier: CommitTableViewCell.identifier)
+        table.register(CommitTableCell.self, forCellReuseIdentifier: CommitTableCell.identifier)
         return table
     }()
-    var commits = [Result]()
-    private var viewModel: CommitTableViewCellViewModel!
+    private var viewModel: CommitsViewModel
+    
+    init(repoName: String, viewModel: CommitsViewModel) {
+        self.repoName = repoName
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +37,9 @@ class CommitsViewController: UIViewController {
     }
     
     func fetchData() {
-        guard let repoName = repoName else { return }
-        self.viewModel = CommitTableViewCellViewModel(repoName: repoName)
-        self.viewModel.bindViewModelToViewController = {
-            self.commits = self.viewModel.commitsData
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        viewModel.getData {
+            DispatchQueue.main.async {[weak self] in
+                self?.tableView.reloadData()
             }
         }
     }
@@ -41,13 +47,13 @@ class CommitsViewController: UIViewController {
 
 extension CommitsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commits.count
+        return viewModel.cellViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CommitTableViewCell.identifier, for: indexPath) as! CommitTableViewCell
-        let commit = commits[indexPath.row].commit
-        self.viewModel.configureCell(cellToConfigure: cell, data: commit)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CommitTableCell.identifier, for: indexPath) as! CommitTableCell
+        let cellViewModel = viewModel.cellViewModels[indexPath.row]
+        cellViewModel.configureCell(cell: cell)
         return cell
     }
 }

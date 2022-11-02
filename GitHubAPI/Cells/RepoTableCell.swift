@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RepoTableViewCell: UITableViewCell {
+class RepoTableCell: UITableViewCell {
 
     static let identifier = "RepoTableViewCell"
     

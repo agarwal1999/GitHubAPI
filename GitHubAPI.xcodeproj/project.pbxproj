@@ -16,11 +16,14 @@
 		562CE295290FB89300AC3AE4 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE294290FB89300AC3AE4 /* Commit.swift */; };
 		562CE29B290FC97100AC3AE4 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE29A290FC97100AC3AE4 /* APIService.swift */; };
 		562CE29D290FCB3200AC3AE4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE29C290FCB3200AC3AE4 /* Repository.swift */; };
-		562CE2A1290FE8CF00AC3AE4 /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2A0290FE8CF00AC3AE4 /* RepoTableViewCell.swift */; };
+		562CE2A1290FE8CF00AC3AE4 /* RepoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2A0290FE8CF00AC3AE4 /* RepoTableCell.swift */; };
 		562CE2A3290FEDB400AC3AE4 /* CommitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2A2290FEDB400AC3AE4 /* CommitsViewController.swift */; };
-		562CE2AB2910EF4700AC3AE4 /* RepositoryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2AA2910EF4700AC3AE4 /* RepositoryTableViewCellViewModel.swift */; };
-		562CE2B02910FDA500AC3AE4 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2AF2910FDA500AC3AE4 /* CommitTableViewCell.swift */; };
-		562CE2B22910FE2C00AC3AE4 /* CommitTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2B12910FE2C00AC3AE4 /* CommitTableViewCellViewModel.swift */; };
+		562CE2B02910FDA500AC3AE4 /* CommitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2AF2910FDA500AC3AE4 /* CommitTableCell.swift */; };
+		562CE2B22910FE2C00AC3AE4 /* CommitTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2B12910FE2C00AC3AE4 /* CommitTableCellViewModel.swift */; };
+		562CE2B529123CB700AC3AE4 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2B429123CB700AC3AE4 /* RepositoryViewModel.swift */; };
+		562CE2B729123DC200AC3AE4 /* RepoTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2B629123DC200AC3AE4 /* RepoTableCellViewModel.swift */; };
+		562CE2B9291268B700AC3AE4 /* CommitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2B8291268B700AC3AE4 /* CommitsViewModel.swift */; };
+		562CE2BC2912783C00AC3AE4 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2BB2912783C00AC3AE4 /* TitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +38,14 @@
 		562CE294290FB89300AC3AE4 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		562CE29A290FC97100AC3AE4 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		562CE29C290FCB3200AC3AE4 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		562CE2A0290FE8CF00AC3AE4 /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		562CE2A0290FE8CF00AC3AE4 /* RepoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableCell.swift; sourceTree = "<group>"; };
 		562CE2A2290FEDB400AC3AE4 /* CommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewController.swift; sourceTree = "<group>"; };
-		562CE2AA2910EF4700AC3AE4 /* RepositoryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		562CE2AF2910FDA500AC3AE4 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
-		562CE2B12910FE2C00AC3AE4 /* CommitTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		562CE2AF2910FDA500AC3AE4 /* CommitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableCell.swift; sourceTree = "<group>"; };
+		562CE2B12910FE2C00AC3AE4 /* CommitTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableCellViewModel.swift; sourceTree = "<group>"; };
+		562CE2B429123CB700AC3AE4 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
+		562CE2B629123DC200AC3AE4 /* RepoTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableCellViewModel.swift; sourceTree = "<group>"; };
+		562CE2B8291268B700AC3AE4 /* CommitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewModel.swift; sourceTree = "<group>"; };
+		562CE2BB2912783C00AC3AE4 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +82,11 @@
 				562CE286290FB5E900AC3AE4 /* Main.storyboard */,
 				562CE289290FB5E900AC3AE4 /* Assets.xcassets */,
 				562CE28B290FB5E900AC3AE4 /* LaunchScreen.storyboard */,
+				562CE2BA2912782600AC3AE4 /* Views */,
 				562CE2AE2910F18500AC3AE4 /* Common */,
 				562CE2AD2910F16200AC3AE4 /* ViewControllers */,
 				562CE2AC2910F15700AC3AE4 /* Services */,
-				562CE29F290FE8B600AC3AE4 /* TableViewCells */,
+				562CE29F290FE8B600AC3AE4 /* Cells */,
 				562CE29E290FD4DA00AC3AE4 /* View Models */,
 				562CE296290FBA9300AC3AE4 /* Models */,
 			);
@@ -98,19 +105,21 @@
 		562CE29E290FD4DA00AC3AE4 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				562CE2AA2910EF4700AC3AE4 /* RepositoryTableViewCellViewModel.swift */,
-				562CE2B12910FE2C00AC3AE4 /* CommitTableViewCellViewModel.swift */,
+				562CE2B429123CB700AC3AE4 /* RepositoryViewModel.swift */,
+				562CE2B8291268B700AC3AE4 /* CommitsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
 		};
-		562CE29F290FE8B600AC3AE4 /* TableViewCells */ = {
+		562CE29F290FE8B600AC3AE4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				562CE2A0290FE8CF00AC3AE4 /* RepoTableViewCell.swift */,
-				562CE2AF2910FDA500AC3AE4 /* CommitTableViewCell.swift */,
+				562CE2A0290FE8CF00AC3AE4 /* RepoTableCell.swift */,
+				562CE2B629123DC200AC3AE4 /* RepoTableCellViewModel.swift */,
+				562CE2AF2910FDA500AC3AE4 /* CommitTableCell.swift */,
+				562CE2B12910FE2C00AC3AE4 /* CommitTableCellViewModel.swift */,
 			);
-			path = TableViewCells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		562CE2AC2910F15700AC3AE4 /* Services */ = {
@@ -137,6 +146,14 @@
 				562CE282290FB5E900AC3AE4 /* SceneDelegate.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		562CE2BA2912782600AC3AE4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				562CE2BB2912783C00AC3AE4 /* TitleView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,16 +227,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562CE2B02910FDA500AC3AE4 /* CommitTableViewCell.swift in Sources */,
+				562CE2B02910FDA500AC3AE4 /* CommitTableCell.swift in Sources */,
+				562CE2B9291268B700AC3AE4 /* CommitsViewModel.swift in Sources */,
 				562CE285290FB5E900AC3AE4 /* ViewController.swift in Sources */,
 				562CE2A3290FEDB400AC3AE4 /* CommitsViewController.swift in Sources */,
 				562CE281290FB5E900AC3AE4 /* AppDelegate.swift in Sources */,
-				562CE2A1290FE8CF00AC3AE4 /* RepoTableViewCell.swift in Sources */,
-				562CE2AB2910EF4700AC3AE4 /* RepositoryTableViewCellViewModel.swift in Sources */,
+				562CE2B729123DC200AC3AE4 /* RepoTableCellViewModel.swift in Sources */,
+				562CE2A1290FE8CF00AC3AE4 /* RepoTableCell.swift in Sources */,
 				562CE295290FB89300AC3AE4 /* Commit.swift in Sources */,
 				562CE29B290FC97100AC3AE4 /* APIService.swift in Sources */,
+				562CE2B529123CB700AC3AE4 /* RepositoryViewModel.swift in Sources */,
 				562CE283290FB5E900AC3AE4 /* SceneDelegate.swift in Sources */,
-				562CE2B22910FE2C00AC3AE4 /* CommitTableViewCellViewModel.swift in Sources */,
+				562CE2BC2912783C00AC3AE4 /* TitleView.swift in Sources */,
+				562CE2B22910FE2C00AC3AE4 /* CommitTableCellViewModel.swift in Sources */,
 				562CE29D290FCB3200AC3AE4 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
