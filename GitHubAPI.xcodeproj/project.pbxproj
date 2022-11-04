@@ -24,6 +24,9 @@
 		562CE2B729123DC200AC3AE4 /* RepoTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2B629123DC200AC3AE4 /* RepoTableCellViewModel.swift */; };
 		562CE2B9291268B700AC3AE4 /* CommitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2B8291268B700AC3AE4 /* CommitsViewModel.swift */; };
 		562CE2BC2912783C00AC3AE4 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2BB2912783C00AC3AE4 /* TitleView.swift */; };
+		562CE2C12913E09B00AC3AE4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2C02913E09B00AC3AE4 /* User.swift */; };
+		562CE2C32913E45800AC3AE4 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2C22913E45800AC3AE4 /* UserViewModel.swift */; };
+		562CE2C52914D89600AC3AE4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CE2C42914D89600AC3AE4 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		562CE2B629123DC200AC3AE4 /* RepoTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableCellViewModel.swift; sourceTree = "<group>"; };
 		562CE2B8291268B700AC3AE4 /* CommitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewModel.swift; sourceTree = "<group>"; };
 		562CE2BB2912783C00AC3AE4 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		562CE2C02913E09B00AC3AE4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		562CE2C22913E45800AC3AE4 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		562CE2C42914D89600AC3AE4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 			children = (
 				562CE294290FB89300AC3AE4 /* Commit.swift */,
 				562CE29C290FCB3200AC3AE4 /* Repository.swift */,
+				562CE2C02913E09B00AC3AE4 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 			children = (
 				562CE2B429123CB700AC3AE4 /* RepositoryViewModel.swift */,
 				562CE2B8291268B700AC3AE4 /* CommitsViewModel.swift */,
+				562CE2C22913E45800AC3AE4 /* UserViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				562CE2BB2912783C00AC3AE4 /* TitleView.swift */,
+				562CE2C42914D89600AC3AE4 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,12 +240,15 @@
 				562CE2B9291268B700AC3AE4 /* CommitsViewModel.swift in Sources */,
 				562CE285290FB5E900AC3AE4 /* ViewController.swift in Sources */,
 				562CE2A3290FEDB400AC3AE4 /* CommitsViewController.swift in Sources */,
+				562CE2C52914D89600AC3AE4 /* ErrorView.swift in Sources */,
 				562CE281290FB5E900AC3AE4 /* AppDelegate.swift in Sources */,
 				562CE2B729123DC200AC3AE4 /* RepoTableCellViewModel.swift in Sources */,
 				562CE2A1290FE8CF00AC3AE4 /* RepoTableCell.swift in Sources */,
 				562CE295290FB89300AC3AE4 /* Commit.swift in Sources */,
 				562CE29B290FC97100AC3AE4 /* APIService.swift in Sources */,
+				562CE2C32913E45800AC3AE4 /* UserViewModel.swift in Sources */,
 				562CE2B529123CB700AC3AE4 /* RepositoryViewModel.swift in Sources */,
+				562CE2C12913E09B00AC3AE4 /* User.swift in Sources */,
 				562CE283290FB5E900AC3AE4 /* SceneDelegate.swift in Sources */,
 				562CE2BC2912783C00AC3AE4 /* TitleView.swift in Sources */,
 				562CE2B22910FE2C00AC3AE4 /* CommitTableCellViewModel.swift in Sources */,
@@ -302,6 +314,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -362,6 +375,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

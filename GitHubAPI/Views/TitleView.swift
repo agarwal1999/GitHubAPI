@@ -9,11 +9,23 @@ import UIKit
 
 class TitleView: UIView {
     
-    let label = UILabel()
-    let imageView = UIImageView()
+    private lazy var nameLabel = UILabel()
+    private lazy var locationLabel = UILabel()
+    private lazy var emailLabel = UILabel()
+    private lazy var companyLabel = UILabel()
+    private lazy var imageView = UIImageView()
+    private lazy var gradient: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]//Colors you want to add
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+       return gradientLayer
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layer.addSublayer(gradient)
+        gradient.frame = bounds
         commonInit()
     }
     
@@ -23,11 +35,14 @@ class TitleView: UIView {
     
     func commonInit() {
         configureImageView()
-        configureLabel()
+        configureNameLabel()
+        configureEmailLabel()
+        configureLocationLabel()
+        configureCompanyLabel()
     }
     
     func setValues(labelText: String?, imageURL: String?) {
-        label.text = labelText
+        nameLabel.text = labelText
         guard let url = URL(string: imageURL ?? "") else { return }
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
@@ -47,24 +62,55 @@ class TitleView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 100),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         ])
         imageView.layer.masksToBounds = true
     }
     
-    func configureLabel() {
-        label.text = "Saurabh Agarwal"
-        label.font = UIFont.systemFont(ofSize: 16)
-        addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
+    func configureNameLabel() {
+        nameLabel.text = "Saurabh Agarwal"
+        nameLabel.font = UIFont.systemFont(ofSize: 24)
+        addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+        ])
+    }
+    
+    func configureEmailLabel() {
+        emailLabel.text = "Email: saurabh.agarwal@mxplayer.in"
+        emailLabel.font = UIFont.systemFont(ofSize: 14)
+        addSubview(emailLabel)
+        emailLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            emailLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+        ])
+    }
+    
+    func configureLocationLabel() {
+        locationLabel.text = "Location: Jaipur, Rajasthan, India"
+        locationLabel.font = UIFont.systemFont(ofSize: 14)
+        addSubview(locationLabel)
+        locationLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            locationLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10),
+            locationLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+        ])
+    }
+    
+    func configureCompanyLabel() {
+        companyLabel.text = "Company: MX Player"
+        companyLabel.font = UIFont.systemFont(ofSize: 14)
+        addSubview(companyLabel)
+        companyLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            companyLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10),
+            companyLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
     }
 }

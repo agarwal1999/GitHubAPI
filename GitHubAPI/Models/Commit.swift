@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Result: Codable {
+struct Response: Codable {
     let commit: Commit
 }
 

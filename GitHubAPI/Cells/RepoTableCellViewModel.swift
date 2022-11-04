@@ -8,23 +8,18 @@
 import UIKit
 
 class RepoTableCellViewModel: NSObject {
-    private var name: String
-    private var language: String
-    var loginUser: String
-    var avatarURL: String
-    var nameValue: String{
-        return name
+    private(set) var repository: Repository?
+    
+    override init() {
+        self.repository = nil
     }
     
     init(repoData: Repository) {
-        self.name = repoData.name
-        self.language = repoData.language
-        self.loginUser = repoData.owner.login
-        self.avatarURL = repoData.owner.avatarURL
+        self.repository = repoData
     }
     
     func configure(cell: RepoTableCell) {
-        cell.repoNameLabel.text = self.name
-        cell.langLabel.text = self.language
+        cell.repoNameLabel.text = self.repository?.name
+        cell.langLabel.text = self.repository?.language
     }
 }
